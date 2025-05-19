@@ -1,0 +1,8 @@
+{
+    "TestingMode":false,
+    "postingTo":{
+            "twitter":true,
+            "bluesky":true,
+            "mastodon":true
+        }
+}
