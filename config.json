@@ -4,5 +4,6 @@
             "twitter":true,
             "bluesky":true,
             "mastodon":true
-        }
+        },
+    "defaultStreamLink":"https://twitch.tv/twitch"
 }
