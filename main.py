@@ -4,6 +4,8 @@ import shutil
 import pathlib
 import json
 import postLiveToBsky as pl2bsky
+import postLiveToMastodon as pl2mast
+import postLiveToTwitter as pl2twitter
 from datetime import date
 from dotenv import load_dotenv
 # from atproto import Client
@@ -51,3 +53,36 @@ if newOrExistingPostAnswer == 1:
     }
     with open(streamNotifFile, 'w') as notifWrite:
         json.dump(streamMessage2Json, notifWrite, indent=4)
+
+loadedNotifFile = json.load(open(streamNotifFile))
+messagePreview = f"""{loadedNotifFile["Line1"]}
+{loadedNotifFile["Line2"]}
+
+{loadedNotifFile["streamLink"]}
+{loadedNotifFile["hashtags"]}"""
+
+print(f"Here is a preview of the message.\n{messagePreview}")
+isItGood = input("\nIs this message okay? [y/n]: ")
+
+if isItGood.casefold == 'y' or 'yes':
+    # Bsky
+    if loadedConfig['postingTo']['bluesky'] == True:
+        pl2bsky.postToBluesky()
+    else:
+        print("Posting to Bluesky is disabled, skipping!")
+
+    # Mast
+    if loadedConfig['postingTo']['mastodon'] == True:
+        pl2mast.postToMast()
+    else:
+        print("Posting to Mastodon is disabled, skipping!")
+
+    # Twitter
+    if loadedConfig['postingTo']['twitter'] == True:
+        pl2twitter.postToTwitter()
+    else:
+        print("Posting to Twitter is disabled, skipping!")
+    
+    sys.exit("Script has finished running! Press enter to close")
+else:
+    sys.exit("Please rerun the script to reconfigure the message")

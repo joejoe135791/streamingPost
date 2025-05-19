@@ -1,6 +1,4 @@
 @echo off
-python twitter.py
-python bsky.py
-python mast.py
+python main.py
 pause
 exit
