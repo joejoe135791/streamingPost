@@ -16,6 +16,8 @@ loadedConfig = json.load(openConfig)
 inTestingMode = loadedConfig['TestingMode']
 defaultStreamLink = loadedConfig['defaultStreamLink']
 newOrExistingPostAnswer = 0
+streamNotifFile = f"{os.getcwd()}/notifs/streamNotifs.json"
+
 try:
     os.mkdir('./notifs')
 except FileExistsError:
@@ -41,7 +43,6 @@ while True:
         print(f"{newOrExistingPostAnswer} is not a valid selection")
 
 if newOrExistingPostAnswer == 1:
-    streamNotifFile = f"{os.getcwd()}/notifs/streamNotifs.json"
     line1Msg = str(input("What should the first line say?: "))
     line2Msg = str(input("What should the second line say?: "))
     hashtagsMsg = str(input("What should the hashtags be?: "))
