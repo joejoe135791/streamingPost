@@ -14,7 +14,7 @@ inTestingMode = loadedConfig['TestingMode']
 # print(f"inTestingMode Type == {type(inTestingMode)}")
 # print(f"inTestingMode == {inTestingMode}")
 
-def postToTwitter():
+def postToTwitterX():
     # Following a medium article
     ACCESS_KEY = os.getenv("twitterAccessKey")
     ACCESS_SECRET = os.getenv("twitterAccessSecret")

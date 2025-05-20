@@ -80,7 +80,7 @@ if (isItGood.casefold() == 'y') or (isItGood.casefold() == 'yes'):
 
     # Twitter
     if loadedConfig['postingTo']['twitter'] == True:
-        pl2twitter.postToTwitter()
+        pl2twitter.postToTwitterX()
     else:
         print("Posting to Twitter is disabled, skipping!")
     
