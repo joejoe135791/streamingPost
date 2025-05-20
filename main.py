@@ -65,7 +65,7 @@ messagePreview = f"""{loadedNotifFile["Line1"]}
 print(f"Here is a preview of the message.\n{messagePreview}")
 isItGood = input("\nIs this message okay? [y/n]: ")
 
-if isItGood.casefold == 'y' or 'yes':
+if (isItGood.casefold() == 'y') or (isItGood.casefold() == 'yes'):
     # Bsky
     if loadedConfig['postingTo']['bluesky'] == True:
         pl2bsky.postToBluesky()
